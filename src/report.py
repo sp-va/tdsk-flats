@@ -1,6 +1,6 @@
 import pandas as pd
 import re
-import datetime
+import datetime as dt
 
 raw_data = pd.read_csv("data.csv", sep="\t")
 data = raw_data[['description', 'actualized_at']]
@@ -16,7 +16,7 @@ def address_from_description(descr):
 
 
 def timestamp_to_date(actualized_at):
-    to_datetime = datetime.datetime.fromisoformat(actualized_at)
+    to_datetime = dt.datetime.fromisoformat(actualized_at)
     formated = to_datetime.strftime("%d.%m.%Y")
     return formated
 
